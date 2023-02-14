@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DG.Tweening;
+// using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -68,24 +68,24 @@ public class ExpandableMenu : MonoBehaviour
         // ------------[ DOTWEEN IS REQUIRED ]-----------------
         
         
-        isAnimating = true;
-        canvasGroup.DOFade(1f, time * 0.8f);
-        toggleBtn.transform.DOScale(1.2f, time / 2).SetLoops(2, LoopType.Yoyo);
-        
-        int multiple = 1;
-        itmList.ForEach(itm =>
-        {
-            itm.DOLocalMove((Vector3)offset + (Vector3) spacing * multiple, time).
-                OnComplete(() =>
-                {
-                    if (itm == itmList.Last())
-                    {
-                        isAnimating = false;
-                        complete?.Invoke();
-                    }
-                });
-            multiple++;
-        });
+        // isAnimating = true;
+        // canvasGroup.DOFade(1f, time * 0.8f);
+        // toggleBtn.transform.DOScale(1.2f, time / 2).SetLoops(2, LoopType.Yoyo);
+        //
+        // int multiple = 1;
+        // itmList.ForEach(itm =>
+        // {
+        //     itm.DOLocalMove((Vector3)offset + (Vector3) spacing * multiple, time).
+        //         OnComplete(() =>
+        //         {
+        //             if (itm == itmList.Last())
+        //             {
+        //                 isAnimating = false;
+        //                 complete?.Invoke();
+        //             }
+        //         });
+        //     multiple++;
+        // });
     }
 
     private void Collapse(float time, Action complete = null)
@@ -93,21 +93,21 @@ public class ExpandableMenu : MonoBehaviour
         // ------------[ DOTWEEN IS REQUIRED ]-----------------
         
         
-        isAnimating = true;
-        canvasGroup.DOFade(0f, time * 0.8f);
-        toggleBtn.transform.DOScale(1.2f, time / 2).SetLoops(2, LoopType.Yoyo);
-        
-        itmList.ForEach(itm =>
-        {
-            itm.DOLocalMove(Vector3.zero, time).
-                OnComplete(() =>
-                {
-                    if (itm == itmList.Last())
-                    {
-                        isAnimating = false;
-                        complete?.Invoke();
-                    }
-                });
-        });
+        // isAnimating = true;
+        // canvasGroup.DOFade(0f, time * 0.8f);
+        // toggleBtn.transform.DOScale(1.2f, time / 2).SetLoops(2, LoopType.Yoyo);
+        //
+        // itmList.ForEach(itm =>
+        // {
+        //     itm.DOLocalMove(Vector3.zero, time).
+        //         OnComplete(() =>
+        //         {
+        //             if (itm == itmList.Last())
+        //             {
+        //                 isAnimating = false;
+        //                 complete?.Invoke();
+        //             }
+        //         });
+        // });
     }
 }
